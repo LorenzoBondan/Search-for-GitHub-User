@@ -8,9 +8,12 @@ function Home() {
 
             <div className="home-content-container">
 
-                <h1>Conheça o melhor catálogo do curso!</h1>
-                <p>Ajudaremos você a encontrar os melhores produtos disponíveis no mercado.</p>
-                    
+                <h1>Desafio Github API</h1>
+                <p>DevSuperior - Escola de programação</p>
+                
+                <Link to="/search">
+                  <button className="btn btn-primary btn-lg start-button">Começar</button>
+                </Link>
             </div>
         </div>
 
