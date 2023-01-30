@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* a fonte de todo o projeto é Roboto */
+* {
+    font-family: 'Roboto';
+    margin: 0;
+    padding: 0;
+}
+
+/* títulos principais do projeto estão em negrito */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin-bottom: 0;
+    text-decoration: none;
+}
+
+/* textos -> sem o sublinhado */
+a, a:hover{
+    text-decoration: none;
+    color: unset;
+}
