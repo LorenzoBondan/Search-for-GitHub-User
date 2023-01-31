@@ -2,6 +2,7 @@ import './styles.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import ResultCard from 'components/ResultCard';
 
 type FormData = {
   txtGithub : string; // os nomes tem que bater com a propriedade name do input
@@ -54,7 +55,7 @@ function Search() {
       <>
         <div className="github-search-container">  
             
-            <div className='base-card container search-container'>
+            <div className='base-card search-container'>
               
               <h1 className='text'>Encontre um perfil Github</h1>
 
@@ -73,12 +74,38 @@ function Search() {
                 <div className='button-zone'>
                   <button type="submit" className="btn btn-primary search-button">Encontrar</button>
                 </div>
-                
 
                 </div>
 
               </form>
+
             </div>
+
+            <div className='info-container'>
+
+                <div className='result-image'>
+                  <img src={address?.avatar_url} alt="Imagem do usuário" />
+                </div>
+
+                <div className='rigth-container'> 
+
+                  <h1>Informações</h1>
+
+                  {address && 
+                  <>
+                  <div className='result-cards'>
+                    <ResultCard title='Perfil:' description={address?.url} />
+                    <ResultCard title='Seguidores:' description={address?.followers} />
+                    <ResultCard title='Localidade:' description={address?.location} />
+                    <ResultCard title='Nome:' description={address?.name} />
+                  </div>
+                </>
+                }
+
+                </div>
+
+              </div>
+
         </div>
 
       </>
