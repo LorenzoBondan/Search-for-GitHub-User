@@ -1,0 +1,52 @@
+.github-search-container {
+    margin-left: 54px;
+}
+
+.search-container {
+    margin-top: 54px;
+
+    width: 1251px;
+    height: 270px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text {
+    margin-left: 30px;
+    margin-bottom: 12px;
+
+    font-size: 38px;
+    color: #262626;
+    font-weight: 500;
+}
+
+input[type=text] {
+    background: #FFFFFF;
+
+    width: 298px;
+    height: 40px;
+
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+
+    padding: 17px;
+
+    font-size: 16px;
+    color: #5C5858;
+}
+
+input::placeholder{
+    color: #BFBFBF;
+}
+
+
+.form-container {
+    margin-left: 30px;
+}
+
+.button-zone button{
+    margin-top: 24px;
+}
+
