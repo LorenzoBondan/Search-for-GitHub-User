@@ -1,13 +1,11 @@
 import './styles.css';
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
-import ResultCard from 'components/ResultCard';
 import GithubResultCard from 'components/GithubResultCard';
+import CardLoader from './CardLoader';
 
 type FormData = {
-  txtGithub : string; // os nomes tem que bater com a propriedade name do input
-  //txtTest : string;
+  txtGithub : string;
 }
 
 type Address = {
@@ -20,14 +18,16 @@ type Address = {
 
 function Search() {
 
-
   // TEXTBOXES
   const [formData, setFormData] = useState<FormData>({txtGithub: ''});
 
   // API
   const [address, setAdress ] = useState<Address>();
 
+  // LOADING ANIMATION
+  const [isLoading, setIsLoading] = useState(false);
 
+  
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
 
     const name = event.target.name;
@@ -40,15 +40,16 @@ function Search() {
   const handleSubmit = (event : React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // no reloading
 
+    setIsLoading(true);
     axios.get(`https://api.github.com/users/${formData.txtGithub}`)
     .then((response) => {
       setAdress(response.data);
-      console.log(response.data);
     })
     .catch((error) => {
       setAdress(undefined);
-      console.log(error);
-    });
+    })
+    .finally(() => {
+      setIsLoading(false)});
     
   }
 
@@ -85,13 +86,15 @@ function Search() {
             {address && 
               <>
               <div className='info-container'>
-                <GithubResultCard 
+              {isLoading ? <CardLoader /> :
+              <GithubResultCard 
                   descriptionProfile={address.url} 
                   descriptionFollowers={address.followers} 
                   descriptionCountry={address.location} 
                   descriptionName={address.name} 
                   imgUrl={address.avatar_url} 
-                />
+                /> 
+              }
               </div>
               </>
             }
