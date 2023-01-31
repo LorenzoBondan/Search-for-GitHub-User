@@ -1,0 +1,41 @@
+.info-container {
+    margin-top: 54px;
+
+    padding: 45px;
+
+    width: 1251px;
+    height: 270px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 1251px;
+    height: 334px;
+
+    background: #F5F5F5;
+    border-radius: 8px;
+}
+
+
+.result-image img{
+    height: 247px;
+    width: auto;
+
+    margin: 0px 29px 44px 0px;
+}
+
+.rigth-container {
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #D9D9D9;
+    padding: 8px 14px 17px 15px;
+    height: 247px;
+}
+
+.rigth-container h1 {
+    color: #1890FF;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}

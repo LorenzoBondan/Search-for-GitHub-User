@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import ResultCard from 'components/ResultCard';
+import GithubResultCard from 'components/GithubResultCard';
 
 type FormData = {
   txtGithub : string; // os nomes tem que bater com a propriedade name do input
@@ -81,30 +82,19 @@ function Search() {
 
             </div>
 
-            <div className='info-container'>
-
-                <div className='result-image'>
-                  <img src={address?.avatar_url} alt="Imagem do usuário" />
-                </div>
-
-                <div className='rigth-container'> 
-
-                  <h1>Informações</h1>
-
-                  {address && 
-                  <>
-                  <div className='result-cards'>
-                    <ResultCard title='Perfil:' description={address?.url} />
-                    <ResultCard title='Seguidores:' description={address?.followers} />
-                    <ResultCard title='Localidade:' description={address?.location} />
-                    <ResultCard title='Nome:' description={address?.name} />
-                  </div>
-                </>
-                }
-
-                </div>
-
+            {address && 
+              <>
+              <div className='info-container'>
+                <GithubResultCard 
+                  descriptionProfile={address.url} 
+                  descriptionFollowers={address.followers} 
+                  descriptionCountry={address.location} 
+                  descriptionName={address.name} 
+                  imgUrl={address.avatar_url} 
+                />
               </div>
+              </>
+            }
 
         </div>
 
